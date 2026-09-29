@@ -1,8 +1,3 @@
-/*
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 (function($) {
 
@@ -43,6 +38,7 @@
 
 		}
 
+
 	// Scrolly.
 		$('.scrolly')
 			.scrolly({
@@ -79,5 +75,71 @@
 			});
 
 		}
+
+	// Slideshow Background.
+		(function() {
+
+			// Only the landing page uses the slideshow.
+				if (!$body.hasClass('landing'))
+					return;
+
+			// Settings: image URLs are relative to the HTML page.
+				var settings = {
+					images: {
+						'images/bg01.jpg': 'center',
+						'images/bg02.jpg': 'center',
+						'images/bg03.jpg': 'center',
+            'images/bg04.jpg': 'center',
+            'images/bg05.jpg': 'center'
+					},
+					delay: 6000
+				};
+
+				var pos = 0,
+					bgs = [],
+					bgWrapper = document.createElement('div');
+
+			// Create decorative background layers behind the page content.
+				bgWrapper.id = 'bg';
+				bgWrapper.setAttribute('aria-hidden', 'true');
+
+				Object.keys(settings.images).forEach(function(url) {
+					var bg = document.createElement('div');
+					bg.style.backgroundImage = 'url("' + url + '")';
+					bg.style.backgroundPosition = settings.images[url];
+					bg.style.transitionDuration = (settings.delay / 2) + 'ms';
+					bgWrapper.appendChild(bg);
+					bgs.push(bg);
+				});
+
+				if (bgs.length === 0)
+					return;
+
+				bgs[pos].classList.add('visible');
+				bgs[pos].classList.add('top');
+				$body[0].appendChild(bgWrapper);
+				$body.addClass('has-slideshow');
+
+			// Keep a static image when animation is unavailable or unwanted.
+				if (bgs.length === 1
+				|| !browser.canUse('transition')
+				|| (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches))
+					return;
+
+				window.setInterval(function() {
+					var previous = bgs[pos];
+					pos = (pos + 1) % bgs.length;
+
+					previous.classList.remove('top');
+					bgs[pos].classList.add('visible');
+					bgs[pos].classList.add('top');
+
+					// Leave the previous image underneath until the new one fades in.
+					window.setTimeout(function() {
+						previous.classList.remove('visible');
+					}, settings.delay / 2);
+				}, settings.delay);
+
+		})();
 
 })(jQuery);

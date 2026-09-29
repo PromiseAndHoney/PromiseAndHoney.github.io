@@ -1931,3 +1931,86 @@
 			}
 		}
 	}
+
+/* Slideshow Background */
+
+	body.landing.has-slideshow #page-wrapper {
+		position: relative;
+		z-index: 1;
+		background: none;
+		animation: none;
+	}
+
+	body.is-mobile.landing.has-slideshow #banner,
+	body.is-mobile.landing.has-slideshow .wrapper.style4 {
+		background: none;
+	}
+
+	#bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+		#bg > div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			opacity: 0;
+			transition: opacity 3s ease-in-out;
+			z-index: 0;
+		}
+
+			#bg > div.visible {
+				opacity: 1;
+				z-index: 1;
+			}
+
+			#bg > div.top {
+				z-index: 2;
+			}
+
+		#bg:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+			z-index: 3;
+		}
+
+	body.is-mobile #bg:after {
+		background: rgba(0,0,0,0.5);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#bg > div {
+			transition: none;
+		}
+	}
+
+/* Fit slideshow images to narrow screens without cropping their sides. */
+@media screen and (max-width: 980px) {
+	#bg > div {
+		width: 100%;
+		background-size: 100% auto;
+	}
+
+	#bg > div.visible {
+		-moz-animation: none;
+		-webkit-animation: none;
+		-ms-animation: none;
+		animation: none;
+	}
+}
