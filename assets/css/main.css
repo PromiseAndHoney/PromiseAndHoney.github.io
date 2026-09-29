@@ -3583,6 +3583,7 @@ input, select, textarea {
 		position: relative;
 		text-align: center;
 		opacity: 1;
+		padding-top: 3em;
 	}
 
 		#banner h2 {
@@ -3707,21 +3708,21 @@ input, select, textarea {
 		@media screen and (max-width: 2000px) {
 
 			#banner {
-				padding: 0em 10em 5em 10em ;
+				padding: 3em 10em 5em 10em ;
 			}
 		}
 
 		@media screen and (max-width: 980px) {
 
 			#banner {
-				padding: 0em 4em 5em 4em ;
+				padding: 5em 4em 5em 4em ;
 			}
 		}
 
 		@media screen and (max-width: 736px) {
 
 			#banner {
-				padding: 0em 3em 8em 3em ;
+				padding: 5em 3em 8em 3em ;
 				height: auto;
 				min-height: 0;
 			}
