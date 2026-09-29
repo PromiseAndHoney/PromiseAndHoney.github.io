@@ -2658,6 +2658,23 @@ input, select, textarea {
 
 			}
 
+	.features .feature-icon {
+		display: block;
+		position: absolute;
+		left: 2em;
+		top: 4em;
+		width: 3em;
+		height: 3em;
+		object-fit: contain;
+	}
+
+	@media screen and (max-width: 980px) {
+		.features .feature-icon {
+			position: static;
+			margin: 0 auto 1.5em;
+		}
+	}
+
 /* Spotlight */
 
 	.spotlight {
