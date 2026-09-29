@@ -3973,6 +3973,7 @@ input, select, textarea {
 		background-repeat: no-repeat;
 		background-size: cover;
 		padding-top: 0;
+		animation: landingZoomFadeIn 3s ease-out forwards;
 	}
 
 	body.landing #footer {
