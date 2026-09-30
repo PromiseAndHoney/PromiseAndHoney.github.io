@@ -1911,7 +1911,7 @@ input, select, textarea {
 		header.major p {
 			color: #fff;
 			top: 0;
-      text-indent: 1em;
+      text-align:center;
 		}
 
 		@media screen and (max-width: 736px) {
