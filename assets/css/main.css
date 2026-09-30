@@ -2651,6 +2651,66 @@ input, select, textarea {
 
 		}
 
+/* Expandable About Us */
+
+	header.about-us .about-us-content {
+		overflow: hidden;
+	}
+
+	/* Keep the first two preview lines clear, then fade through line five. */
+	header.about-us .about-us-content.is-collapsed {
+		-webkit-mask-image: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.35) 80%, rgba(0, 0, 0, 0.15) 100%);
+		mask-image: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.35) 80%, rgba(0, 0, 0, 0.15) 100%);
+	}
+
+	header.about-us .about-us-copy {
+		display: flow-root;
+	}
+
+	header.about-us .about-us-copy p {
+		top: 0;
+	}
+
+	header.about-us .about-us-copy > p:last-child {
+		margin-bottom: 0;
+	}
+
+	header.about-us button.about-us-toggle {
+		display: block;
+		width: fit-content;
+		max-width: 100%;
+		height: auto;
+		margin: 1.25em auto 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: none;
+		box-shadow: none;
+		color: inherit;
+		font-size: 0.9em;
+		line-height: 1.5;
+		letter-spacing: normal;
+		text-indent: 0;
+		text-transform: none;
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+		cursor: pointer;
+	}
+
+	header.about-us button.about-us-toggle:hover,
+	header.about-us button.about-us-toggle:active {
+		background: none;
+	}
+
+	header.about-us button.about-us-toggle:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 4px;
+	}
+
+	header.about-us button.about-us-toggle[hidden] {
+		display: none;
+	}
+
 /* About Us Icons */
 
 	.about-us-icons {

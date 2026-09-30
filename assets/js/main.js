@@ -76,6 +76,58 @@
 
 		}
 
+	// Expandable About Us sections.
+		$('#about-us-en, #about-us-kr').each(function() {
+			var $section = $(this),
+				$content = $section.children('.about-us-content'),
+				$copy = $content.children('.about-us-copy'),
+				$toggle = $section.children('.about-us-toggle'),
+				$firstParagraph = $copy.children('p').first(),
+				expanded = false,
+				collapsedHeight = 0,
+				reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+
+			if (!$firstParagraph.length || !$toggle.length)
+				return;
+
+			function refresh() {
+				var paragraphStyle = window.getComputedStyle($firstParagraph[0]),
+					lineHeight = parseFloat(paragraphStyle.lineHeight) || parseFloat(paragraphStyle.fontSize) * 1.5,
+					fullHeight = $copy.outerHeight();
+
+				// Measure five rendered lines, even after resizing or loading fonts.
+				collapsedHeight = lineHeight * 5;
+				$content.stop(true).height(expanded ? 'auto' : Math.min(collapsedHeight, fullHeight));
+				$content.toggleClass('is-collapsed', !expanded && fullHeight > collapsedHeight + 1);
+				$toggle.prop('hidden', fullHeight <= collapsedHeight + 1);
+			}
+
+			$toggle.on('click', function() {
+				expanded = !expanded;
+				$content.toggleClass('is-collapsed', !expanded && $copy.outerHeight() > collapsedHeight + 1);
+				$toggle.attr('aria-expanded', String(expanded));
+				$toggle.text($toggle.attr(expanded ? 'data-collapse-label' : 'data-expand-label'));
+
+				$content.stop(true).animate({
+					height: expanded ? $copy.outerHeight() : Math.min(collapsedHeight, $copy.outerHeight())
+				}, {
+					duration: reducedMotion && reducedMotion.matches ? 0 : 400,
+					complete: function() {
+						if (expanded)
+							$content.css('height', 'auto');
+						else if ($toggle[0].getBoundingClientRect().top < 0)
+							$section[0].scrollIntoView({ block: 'start', behavior: 'auto' });
+					}
+				});
+			});
+
+			refresh();
+			$window.on('resize', refresh);
+
+			if (document.fonts && document.fonts.ready)
+				document.fonts.ready.then(refresh);
+		});
+
 	// Slideshow Background.
 		(function() {
 
