@@ -1,5 +1,8 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700");
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+KR:400,400italic,600,600italic,800,800italic");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,400italic,600,600italic,800,800italic");
 
 /*
 	Spectral by HTML5 UP
@@ -106,9 +109,104 @@ input, select, textarea {
 		font-family: "Open Sans", Helvetica, sans-serif;
 		font-size: 15pt;
 		font-weight: 400;
-		letter-spacing: 0.075em;
 		line-height: 1.65em;
 	}
+	.pt-serif-regular {
+		font-family: "PT Serif", serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.pt-serif-bold {
+		font-family: "PT Serif", serif;
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	.pt-serif-regular-italic {
+		font-family: "PT Serif", serif;
+		font-weight: 400;
+		font-style: italic;
+	}
+
+	.pt-serif-bold-italic {
+		font-family: "PT Serif", serif;
+		font-weight: 700;
+		font-style: italic;
+	}	
+
+
+	.noto-serif-kr {
+		font-family: "Noto Serif KR", serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.noto-serif-kr-italic {
+		font-family: "Noto Serif KR", serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: italic;
+	}
+	
+	.noto-serif-kr-bold {
+		font-family: "Noto Serif KR", serif;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	.noto-serif-kr-extrabold {
+		font-family: "Noto Serif KR", serif;
+		font-optical-sizing: auto;
+		font-weight: 800;
+		font-style: normal;
+	}
+
+	.noto-serif-kr-bold-italic {
+		font-family: "Noto Serif KR", serif;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		font-style: italic;
+	}
+
+	.noto-sans-kr {
+		font-family: "Noto Sans KR", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.noto-sans-kr-italic {
+		font-family: "Noto Sans KR", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: italic;
+	}
+	
+	.noto-sans-kr-bold {
+		font-family: "Noto Sans KR", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	.noto-sans-kr-extrabold {
+		font-family: "Noto Sans KR", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 800;
+		font-style: normal;
+	}
+
+	.noto-sans-kr-bold-italic {
+		font-family: "Noto Sans KR", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		font-style: italic;
+	}
+
+
 
 		@media screen and (max-width: 1680px) {
 
@@ -130,7 +228,6 @@ input, select, textarea {
 
 			body, input, select, textarea {
 				font-size: 11pt;
-				letter-spacing: 0.0375em;
 			}
 
 		}
@@ -159,13 +256,12 @@ input, select, textarea {
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 1em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #fff;
 		font-weight: 800;
-		letter-spacing: 0.225em;
 		line-height: 1em;
 		margin: 0 0 1em 0;
 		text-transform: uppercase;
@@ -177,28 +273,19 @@ input, select, textarea {
 		}
 
 	h2 {
-		font-size: 1.35em;
+		font-size: 1.4em;
 		line-height: 1.75em;
 	}
 
-		@media screen and (max-width: 736px) {
-
-			h2 {
-				font-size: 1.1em;
-				line-height: 1.65em;
-			}
-
-		}
-
 	h3 {
-		font-size: 1.15em;
+		font-size: 1.3em;
 		line-height: 1.75em;
 	}
 
 		@media screen and (max-width: 736px) {
 
 			h3 {
-				font-size: 1em;
+				font-size: 1.2em;
 				line-height: 1.65em;
 			}
 
@@ -2419,10 +2506,10 @@ input, select, textarea {
 		color: #fff;
 		cursor: pointer;
 		display: inline-block;
-		font-size: 0.8em;
+		font-size: 1em;
 		font-weight: 600;
 		height: 3.125em;
-		letter-spacing: 0.225em;
+		letter-spacing: 0.1em;
 		line-height: 3.125em;
 		max-width: 30em;
 		padding: 0 2.75em;
@@ -2432,6 +2519,7 @@ input, select, textarea {
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		margin-top: 3em;
 	}
 
 		input[type="submit"]:hover,
@@ -2555,10 +2643,10 @@ input, select, textarea {
 	}
 
 		.features li {
-			padding: 4em 4em 2em 6em ;
+			padding: 2em ;
 			display: block;
 			position: relative;
-			text-align: left;
+			text-align: center;
 			width: 50%;
 		}
 
@@ -2660,19 +2748,11 @@ input, select, textarea {
 
 	.features .feature-icon {
 		display: block;
-		position: absolute;
-		left: 2em;
-		top: 4em;
-		width: 3em;
-		height: 3em;
+		position: static;
+		margin: 0 auto 1em;
+		width: 4em;
+		height: 4em;
 		object-fit: contain;
-	}
-
-	@media screen and (max-width: 980px) {
-		.features .feature-icon {
-			position: static;
-			margin: 0 auto 1.5em;
-		}
 	}
 
 /* Spotlight */
@@ -2867,7 +2947,7 @@ input, select, textarea {
 			}
 
 			.wrapper.style1 header.major p {
-				color: #c8ece9;
+				color: #ffffff;
 			}
 
 			.wrapper.style1 label {
@@ -3613,7 +3693,7 @@ input, select, textarea {
 			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
 			transition: transform 0.5s ease, opacity 0.5s ease;
 			display: inline-block;
-			font-size: 1.75em;
+			font-size: 1.9em;
 			opacity: 1;
 			padding: 0.35em 1em;
 			position: relative;
@@ -3648,13 +3728,9 @@ input, select, textarea {
 			}
 
 		#banner p {
-			letter-spacing: 0.225em;
-			text-transform: uppercase;
+			font-family: "Open Sans", serif;
+			font-size: 1.3em;
 		}
-
-			#banner p a {
-				color: inherit;
-			}
 
 		#banner .more {
 			-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
@@ -3672,10 +3748,11 @@ input, select, textarea {
 			border: none;
 			bottom: 0;
 			color: inherit;
-			font-size: 0.8em;
+			font-size: 1em;
+			font-weight: 600;
 			height: 8.5em;
 			left: 50%;
-			letter-spacing: 0.225em;
+			letter-spacing: 0.125em;
 			margin-left: -8.5em;
 			opacity: 1;
 			outline: 0;
@@ -3734,6 +3811,14 @@ input, select, textarea {
 			#banner {
 				padding: 5em 4em 5em 4em ;
 			}
+
+			#banner h2 {
+				font-size: 1.75em;
+			}
+
+			#banner p {
+				font-size: 1.4em;
+			}
 		}
 
 		@media screen and (max-width: 736px) {
@@ -3744,17 +3829,21 @@ input, select, textarea {
 				min-height: 0;
 			}
 
-				#banner h2 {
-					font-size: 1.25em;
-				}
+			#banner h2 {
+				font-size: 1.6em;
+			}
 
-				#banner br {
-					display: none;
-				}
+			#banner p {
+				font-size: 1.3em;
+			}
 
-				#banner .more {
-					display: none;
-				}
+			#banner br {
+				display: none;
+			}
+
+			#banner .more {
+				display: none;
+			}
 
 		}
 
@@ -4082,7 +4171,7 @@ input, select, textarea {
   transition: opacity 2s ease-in-out;
   height: 100%;
   left: 0;
-  opacity: 0.9;
+  opacity: 0.8;
   position: fixed;
   top: 0;
   width: 100%;
@@ -4099,7 +4188,7 @@ input, select, textarea {
     position: absolute;
     top: 0;
     visibility: hidden;
-    width: 105%; }
+    width: 110%; }
     #bg div.visible {
       -moz-animation: bg 45s linear infinite;
       -webkit-animation: bg 45s linear infinite;
@@ -4173,7 +4262,7 @@ input, select, textarea {
     -ms-transform: translateX(0);
     transform: translateX(0); }
   100% {
-    -moz-transform: translateX(-25%);
-    -webkit-transform: translateX(-25%);
-    -ms-transform: translateX(-25%);
-    transform: translateX(-25%); } }
+    -moz-transform: translateX(-35%);
+    -webkit-transform: translateX(-35%);
+    -ms-transform: translateX(-35%);
+    transform: translateX(-35%); } }
