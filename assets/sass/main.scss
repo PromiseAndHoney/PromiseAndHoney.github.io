@@ -979,6 +979,24 @@
 		}
 	}
 
+/* About Us Icons */
+
+	.about-us-icons {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 4em));
+		justify-content: center;
+		align-items: center;
+		gap: 1.5em;
+		margin: 2em 0;
+		text-indent: 0;
+	}
+
+		.about-us-icons img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
 /* Features */
 
 	.features {
