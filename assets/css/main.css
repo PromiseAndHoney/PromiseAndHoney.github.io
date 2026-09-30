@@ -274,7 +274,7 @@ input, select, textarea {
 
 	h2 {
 		font-size: 1.4em;
-		line-height: 1.75em;
+		line-height: 2em;
 	}
 
 	h3 {
@@ -2648,6 +2648,7 @@ input, select, textarea {
 			position: relative;
 			text-align: center;
 			width: 50%;
+			font-size: 1.1em;
 		}
 
 			.features li:nth-child(1) {
@@ -2904,7 +2905,7 @@ input, select, textarea {
 			@media screen and (max-width: 980px) {
 
 				.wrapper > .inner {
-					width: 90%;
+					width: 100%;
 				}
 
 			}
@@ -3824,13 +3825,13 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#banner {
-				padding: 5em 3em 8em 3em ;
+				padding: 5em 2em 8em 2em ;
 				height: auto;
 				min-height: 0;
 			}
 
 			#banner h2 {
-				font-size: 1.6em;
+				font-size: 1.4em;
 			}
 
 			#banner p {
