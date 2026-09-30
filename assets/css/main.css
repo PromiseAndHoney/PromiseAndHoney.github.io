@@ -2663,6 +2663,12 @@ input, select, textarea {
 		text-indent: 0;
 	}
 
+		.about-us-icons a {
+			display: block;
+			min-width: 0;
+			border: 0;
+		}
+
 		.about-us-icons img {
 			display: block;
 			width: 100%;
