@@ -319,6 +319,13 @@ input, select, textarea {
 		line-height: 1.5em;
 	}
 
+	.scripture-reference {
+		font-size: 0.85em;
+		margin-inline-start: 0.25em;
+		opacity: 0.85;
+		white-space: nowrap;
+	}
+
 	sub {
 		font-size: 0.8em;
 		position: relative;
