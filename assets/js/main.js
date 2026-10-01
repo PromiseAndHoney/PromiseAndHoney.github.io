@@ -76,6 +76,25 @@
 
 		}
 
+	// Language selection. Content is filtered by the root language in CSS.
+		var $languageSwitcher = $('.language-switcher'),
+			$languageButtons = $languageSwitcher.find('[data-language]');
+
+		$languageButtons.on('click', function() {
+			var language = $(this).attr('data-language');
+
+			if (language !== 'en' && language !== 'ko')
+				return;
+
+			document.documentElement.lang = language;
+			$languageSwitcher.attr('aria-label', language === 'ko' ? '언어 선택' : 'Language');
+			$languageButtons.each(function() {
+				$(this).attr('aria-pressed', String($(this).attr('data-language') === language));
+			});
+			$window.trigger('languagechange');
+		});
+		$languageSwitcher.prop('hidden', false);
+
 	// Expandable About Us sections.
 		$('#about-us-en, #about-us-kr').each(function() {
 			var $section = $(this),
@@ -91,6 +110,10 @@
 				return;
 
 			function refresh() {
+				// Wait until this language is visible before measuring its text.
+				if ($section.attr('data') !== document.documentElement.lang)
+					return;
+
 				var paragraphStyle = window.getComputedStyle($firstParagraph[0]),
 					lineHeight = parseFloat(paragraphStyle.lineHeight) || parseFloat(paragraphStyle.fontSize) * 1.5,
 					fullHeight = $copy.outerHeight();
@@ -122,7 +145,7 @@
 			});
 
 			refresh();
-			$window.on('resize', refresh);
+			$window.on('resize languagechange', refresh);
 
 			if (document.fonts && document.fonts.ready)
 				document.fonts.ready.then(refresh);
