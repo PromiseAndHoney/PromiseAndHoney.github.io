@@ -2651,6 +2651,70 @@ input, select, textarea {
 
 		}
 
+/* Support Notice */
+
+	body.has-support-modal {
+		overflow: hidden;
+	}
+
+	#support-dialog {
+		width: min(30em, calc(100% - 2em));
+		max-height: calc(100% - 2em);
+		margin: auto;
+		padding: 2em;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 12px;
+		background: #2e3842;
+		color: #fff;
+		box-shadow: 0 1em 3em rgba(0, 0, 0, 0.4);
+		text-align: center;
+	}
+
+	#support-dialog:not([open]),
+	#support-dialog [hidden] {
+		display: none;
+	}
+
+	#support-dialog::backdrop {
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	#support-dialog h2 {
+		font-size: 1.15em;
+		letter-spacing: 0.05em;
+	}
+
+	#support-worker-details {
+		font-size: 1.1em;
+		line-height: 2;
+	}
+
+	#support-dialog .button,
+	#support-dialog button {
+		height: auto;
+		max-width: 100%;
+		margin: 0;
+		padding: 0.75em 1.25em;
+		line-height: 1.5;
+		letter-spacing: normal;
+		text-transform: none;
+		white-space: normal;
+	}
+
+	#support-dialog #support-cancel {
+		display: block;
+		margin: 1em auto 0;
+		box-shadow: none;
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+
+	#support-dialog a:focus-visible,
+	#support-dialog button:focus-visible {
+		outline: 2px solid #fff;
+		outline-offset: 3px;
+	}
+
 /* Language Selection */
 
 	html[lang="en"] [data="ko"],
@@ -3967,7 +4031,7 @@ input, select, textarea {
 			top: 0;
 			opacity: 0;
 		}
-		@media screen and (max-width: 2000px) {
+		@media screen and (min-width: 981px) {
 
 			#banner {
 				padding: 3em 10em 5em 10em ;
@@ -3992,12 +4056,13 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#banner {
-				padding: 5em 2em 8em 2em ;
+				padding: 8em 1.5em 8em 1.5em ;
 				height: auto;
 				min-height: 0;
 			}
 
 			#banner h2 {
+				margin-bottom:3em;
 				font-size: 1.4em;
 			}
 
@@ -4009,8 +4074,8 @@ input, select, textarea {
 				display: none;
 			}
 
-			#banner .more {
-				display: none;
+			.button.primary {
+				margin-top: 15em;
 			}
 
 		}

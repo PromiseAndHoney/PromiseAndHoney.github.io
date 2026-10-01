@@ -76,6 +76,75 @@
 
 		}
 
+	// Show the worker details before opening the support page in a new tab.
+		(function() {
+			var link = document.getElementById('support-link'),
+				dialog = document.getElementById('support-dialog'),
+				status = document.getElementById('support-status'),
+				fallbackStatus = document.getElementById('support-fallback-status'),
+				continueLink = document.getElementById('support-continue'),
+				cancelButton = document.getElementById('support-cancel'),
+				redirectTimer = null;
+
+			if (!link || !dialog || typeof dialog.showModal !== 'function')
+				return;
+
+			function clearRedirect() {
+				window.clearTimeout(redirectTimer);
+				redirectTimer = null;
+			}
+
+			function closeDialog() {
+				clearRedirect();
+				dialog.close();
+			}
+
+			link.addEventListener('click', function(event) {
+				// Preserve the browser's modified-click behavior.
+				if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)
+					return;
+
+				event.preventDefault();
+				if (dialog.open)
+					return;
+
+				status.hidden = false;
+				fallbackStatus.hidden = true;
+				continueLink.hidden = true;
+				continueLink.href = link.href;
+				dialog.setAttribute('aria-describedby', 'support-worker-details support-status');
+				dialog.showModal();
+				$body.addClass('has-support-modal');
+
+				redirectTimer = window.setTimeout(function() {
+					redirectTimer = null;
+					var supportTab = window.open('about:blank', '_blank');
+
+					if (supportTab) {
+						supportTab.opener = null;
+						supportTab.location.replace(link.href);
+						closeDialog();
+						return;
+					}
+
+					// Delayed popups may be blocked; keep a direct link available.
+					status.hidden = true;
+					fallbackStatus.hidden = false;
+					continueLink.hidden = false;
+					dialog.setAttribute('aria-describedby', 'support-worker-details support-fallback-status');
+					continueLink.focus();
+				}, 4000);
+			});
+
+			cancelButton.addEventListener('click', closeDialog);
+			continueLink.addEventListener('click', closeDialog);
+			dialog.addEventListener('cancel', clearRedirect);
+			dialog.addEventListener('close', function() {
+				clearRedirect();
+				$body.removeClass('has-support-modal');
+			});
+		})();
+
 	// Language selection. Content is filtered by the root language in CSS.
 		var $languageSwitcher = $('.language-switcher'),
 			$languageButtons = $languageSwitcher.find('[data-language]');
