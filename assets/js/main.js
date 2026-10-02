@@ -128,9 +128,9 @@
 		});
 		$languageSwitcher.prop('hidden', false);
 
-	// Reveal each CTA element once when it enters the viewport.
+	// Reveal page content once when each element enters the viewport.
 		(function() {
-			var targets = document.querySelectorAll('#cta .inner .info, #cta .button'),
+			var targets = document.querySelectorAll('#cta .inner .info, #cta .button, header.about-us, .about-us-icons, #two h2, ul.features > li, .video-wrapper, .spotlight .content'),
 				reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
 
 			if (!targets.length || !('IntersectionObserver' in window) || (reducedMotion && reducedMotion.matches))
@@ -148,11 +148,11 @@
 
 			function showImmediately(target) {
 				observer.unobserve(target);
-				target.classList.remove('cta-reveal', 'is-visible');
+				target.classList.remove('scroll-reveal', 'is-visible');
 			}
 
 			targets.forEach(function(target) {
-				target.classList.add('cta-reveal');
+				target.classList.add('scroll-reveal');
 				observer.observe(target);
 
 				// Keep completed reveals visible, including after language changes.
