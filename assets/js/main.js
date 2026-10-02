@@ -128,6 +128,61 @@
 		});
 		$languageSwitcher.prop('hidden', false);
 
+	// Reveal each CTA element once when it enters the viewport.
+		(function() {
+			var targets = document.querySelectorAll('#cta .inner .info, #cta .button'),
+				reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+
+			if (!targets.length || !('IntersectionObserver' in window) || (reducedMotion && reducedMotion.matches))
+				return;
+
+			var observer = new window.IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (!entry.isIntersecting)
+						return;
+
+					entry.target.classList.add('is-visible');
+					observer.unobserve(entry.target);
+				});
+			}, { rootMargin: '0px 0px -24px 0px', threshold: 0 });
+
+			function showImmediately(target) {
+				observer.unobserve(target);
+				target.classList.remove('cta-reveal', 'is-visible');
+			}
+
+			targets.forEach(function(target) {
+				target.classList.add('cta-reveal');
+				observer.observe(target);
+
+				// Keep completed reveals visible, including after language changes.
+				target.addEventListener('animationend', function(event) {
+					if (event.target === target && event.animationName === 'fade-up')
+						showImmediately(target);
+				});
+
+				// Keyboard navigation should never focus an invisible button.
+				target.addEventListener('focusin', function() {
+					showImmediately(target);
+				});
+			});
+
+			function handleMotionChange(event) {
+				if (!event.matches)
+					return;
+
+				targets.forEach(showImmediately);
+				observer.disconnect();
+			}
+
+			if (reducedMotion) {
+				if (reducedMotion.addEventListener)
+					reducedMotion.addEventListener('change', handleMotionChange);
+				else if (reducedMotion.addListener)
+					reducedMotion.addListener(handleMotionChange);
+			}
+		})();
+
 	// Expandable About Us sections.
 		$('#about-us-en, #about-us-kr').each(function() {
 			var $section = $(this),

@@ -3375,7 +3375,43 @@ input, select, textarea {
 
 		.wrapper.style2 {
 			background-color: #3e444a;
+			background-image:
+				linear-gradient(rgba(45, 45, 45, 0.4), rgba(45, 45, 45, 0.9)),
+				url("../../images/honeycomb-honey.jpg");
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
 		}
+
+	/* Only hide CTA elements after the scroll observer has been enabled. */
+	#cta .cta-reveal {
+		opacity: 0;
+		transform: translateY(24px);
+	}
+
+	#cta .cta-reveal.is-visible {
+		animation: fade-up 0.9s ease-out 0.3s both;
+	}
+
+	#cta .button.cta-reveal.is-visible {
+		animation-delay: 0.8s;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#cta .cta-reveal {
+			opacity: 1;
+			transform: none;
+		}
+
+		#cta .cta-reveal.is-visible {
+			animation: none;
+		}
+	}
+
+    @keyframes fade-up {
+        from { opacity: 0; transform: translateY(24px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
 
 		.wrapper.style3 {
 			background-color: #505393;
@@ -4171,6 +4207,14 @@ input, select, textarea {
 	}
 
 /* CTA */
+section.cta {
+  background-image: linear-gradient(
+				135deg,
+				rgba(38, 48, 49, 0.86) 0%,
+				rgba(29, 36, 42, 0.9) 55%,
+				rgba(35, 46, 40, 0.86) 100%
+			)
+}
 
 	#cta .inner {
 		display: -moz-flex;
@@ -4179,7 +4223,7 @@ input, select, textarea {
 		display: flex;
 		align-items: center;
 		column-gap: 2em;
-		max-width: 45em;
+		max-width: 70em;
 	}
 
 		#cta .inner header {
@@ -4187,7 +4231,7 @@ input, select, textarea {
 			-webkit-order: 1;
 			-ms-order: 1;
 			order: 1;
-			width: 70%;
+			width: 80%;
 		}
 
 			#cta .inner header p {
@@ -4204,7 +4248,7 @@ input, select, textarea {
 			-ms-order: 2;
 			order: 2;
 			margin: 0;
-			width: 30%;
+			width: 20%;
 		}
 
 			#cta .inner .actions .button {
