@@ -1156,7 +1156,7 @@
 		.image {
 			@include vendor('order', '1');
 			border-radius: 0;
-			width: 40%;
+			width: 50%;
 
 			img {
 				border-radius: 0;
@@ -1168,7 +1168,7 @@
 			@include padding(2em, 4em);
 			@include vendor('order', '2');
 			max-width: 48em;
-			width: 60%;
+			width: 50%;
 		}
 
 		&:nth-child(2n) {
@@ -1185,11 +1185,11 @@
 
 		@include breakpoint('<=large') {
 			.image {
-				width: 45%;
+				width: 50%;
 			}
 
 			.content {
-				width: 55%;
+				width: 50%;
 			}
 		}
 

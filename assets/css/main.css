@@ -1914,6 +1914,11 @@ input, select, textarea {
 		margin: 0 0 3.5em 0;
 	}
 
+	header.video {
+		margin: 0 0 1em 0;
+		text-align: center;
+	}
+
 		header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
 			border-bottom: solid 2px #fff;
 			display: inline-block;
@@ -3048,12 +3053,12 @@ input, select, textarea {
 			}
 
 		.spotlight .content {
-			padding: 2em 4em 0.1em 4em ;
+			padding: 2em 0em;
 			-moz-order: 2;
 			-webkit-order: 2;
 			-ms-order: 2;
 			order: 2;
-			max-width: 48em;
+			max-width: 50em;
 			width: 50%;
 		}
 
@@ -3111,11 +3116,11 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			.spotlight .image {
-				width: 45%;
+				width: 50%;
 			}
 
 			.spotlight .content {
-				width: 55%;
+				width: 50%;
 			}
 
 		}
@@ -3135,7 +3140,7 @@ input, select, textarea {
 				}
 
 				.spotlight .content {
-					padding: 4em 3em 2em 3em ;
+					padding: 1em 3em;;
 					max-width: none;
 					text-align: center;
 					width: 100%;
@@ -3146,7 +3151,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.spotlight .content {
-				padding: 3em 2em 1em 2em ;
+				padding: 1em 2em ;
 			}
 
 		}
@@ -3154,17 +3159,26 @@ input, select, textarea {
     /* Video Wrapper */
 		.video-wrapper {
 			position: relative;
-			width: 100%;
+			width: calc(100% - 4em);
 			max-width: 800px;
+			margin: 0em 2em;
+			border-radius: 12px;
+			overflow: hidden;
 			aspect-ratio: 16 / 9;
 			}
-			.video-wrapper iframe {
+		.video-wrapper iframe {
 			position: absolute;
 			inset: 0;
 			width: 100%;
 			height: 100%;
 			border: 0;
 		}
+
+	/* Keep the video heading and rows on one section background. */
+	#five .spotlight {
+		background-color: transparent;
+		margin-bottom: 3em;
+	}
 
     /* Full-width page embed */
 		.iframe-wrapper {
@@ -3578,6 +3592,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style5 {
+			padding-top: 2em;
 			background-color: #2e3842;
 		}
 
