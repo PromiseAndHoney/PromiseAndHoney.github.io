@@ -1,0 +1,5 @@
+# robots.txt
+# Deny crawling of all content to all compliant crawlers.
+
+User-agent: *
+Disallow: /
