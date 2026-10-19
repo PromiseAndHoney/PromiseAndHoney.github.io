@@ -2751,6 +2751,87 @@ input, select, textarea {
 		outline-offset: 3px;
 	}
 
+/* Fixed partner logos */
+
+	.partner-logos {
+		position: fixed;
+		top: 1em;
+		left: 1em;
+		z-index: 100;
+		display: flex;
+		align-items: center;
+		gap: 1em;
+		pointer-events: none;
+		opacity: 1;
+		transition: opacity 250ms ease;
+	}
+
+	.partner-logos.is-scrolled {
+		opacity: 0.6;
+	}
+
+	.partner-logos img {
+		display: block;
+		height: auto;
+	}
+
+	.partner-logo-chodae {
+		width: 130px;
+	}
+
+	.partner-logo-frontiers {
+		width: 60px;
+	}
+
+	@media screen and (max-width: 480px) {
+		.partner-logos {
+			gap: 1em;
+		}
+
+		.partner-logo-chodae {
+			width: 88px;
+		}
+
+		.partner-logo-frontiers {
+			width: 42px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.partner-logos {
+			transition: none;
+		}
+	}
+
+	/* Footer partner logos */
+	.footer-partner-logos {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 2em;
+		margin: 0 0 2em;
+	}
+
+	.footer-partner-logos a {
+		display: block;
+		border-bottom: 0;
+	}
+
+	.footer-partner-logos img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.footer-partner-logo-chodae {
+		width: 130px;
+	}
+
+	.footer-partner-logo-frontiers {
+		width: 70px;
+	}
+
 /* Language Selection */
 
 	html[lang="en"] [data="ko"],
@@ -4241,9 +4322,8 @@ section.cta {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			color: rgba(255, 255, 255, 0.5);
-			font-size: 0.8em;
-			letter-spacing: 0.225em;
+			font-size: 1em;
+			letter-spacing: 0.125em;
 			list-style: none;
 			margin: 0;
 			padding: 0;

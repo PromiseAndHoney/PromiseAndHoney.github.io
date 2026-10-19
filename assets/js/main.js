@@ -109,6 +109,22 @@
 			});
 		})();
 
+	// Soften the fixed logos while reading the page.
+		(function() {
+			var logos = document.querySelector('.partner-logos');
+
+			if (!logos)
+				return;
+
+			function updateLogoOpacity() {
+				logos.classList.toggle('is-scrolled', window.scrollY > 0);
+			}
+
+			window.addEventListener('scroll', updateLogoOpacity, { passive: true });
+			window.addEventListener('pageshow', updateLogoOpacity);
+			updateLogoOpacity();
+		})();
+
 	// Language selection. Content is filtered by the root language in CSS.
 		var $languageSwitcher = $('.language-switcher'),
 			$languageButtons = $languageSwitcher.find('[data-language]');
