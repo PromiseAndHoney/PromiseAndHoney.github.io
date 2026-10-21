@@ -276,7 +276,7 @@ input, select, textarea {
 		color: #fff;
 		font-weight: 800;
 		line-height: 1em;
-		margin: 0 0 1em 0;
+		margin-bottom: 0.3em;
 		/* text-transform: uppercase; */
 	}
 
@@ -1922,7 +1922,7 @@ input, select, textarea {
 		header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
 			border-bottom: solid 2px #fff;
 			display: inline-block;
-			padding-bottom: 1em;
+			padding-bottom: 0.3em;
 			position: relative;
 		}
 
