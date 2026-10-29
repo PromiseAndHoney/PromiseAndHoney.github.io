@@ -142,6 +142,7 @@
 			});
 			$window.trigger('languagechange');
 		});
+		$languageButtons.filter('[data-language="' + document.documentElement.lang + '"]').trigger('click');
 		$languageSwitcher.prop('hidden', false);
 
 	// Reveal page content once when each element enters the viewport.
